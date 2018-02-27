@@ -25,14 +25,19 @@ input.form-control:focus {
     font-size: 1.2rem;
     box-shadow: none;
 }
-div.track {
+.track {
+    display: block;
     padding: 10px;
 }
-div.track:hover {
+.track:hover {
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.20);
 }
-div.card-body {
+.track > h3,
+.track > small {
+    pointer-events: none;
+}
+.card-body {
     background-color: rgba(0, 0, 0, 0.20);    
     margin-bottom: 10px;
 }
