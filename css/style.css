@@ -1,0 +1,52 @@
+.sacramentoFont {
+    font-family: 'Sacramento', cursive; 
+}
+body {
+    background-color: #001F27;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+nav span {
+    font-size: 35px;
+    margin-left: 20px;
+}
+.bg-dark {
+    background-color: #003B4B !important;
+    background: linear-gradient(#006989,#003B4B, #001F27) !important;
+}
+input.form-control,
+input.form-control:focus {
+    background-color: transparent;
+    border-width: 0 0 2px 0;
+    border-color: white;
+    border-radius: 0;
+    border-style: solid;
+    color: white;
+    font-size: 1.2rem;
+    box-shadow: none;
+}
+div.track {
+    padding: 10px;
+}
+div.track:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.20);
+}
+div.card-body {
+    background-color: rgba(0, 0, 0, 0.20);    
+    margin-bottom: 10px;
+}
+hr {
+    border-color: #006989;
+}
+footer {
+    background-color: #001F27;
+    background: linear-gradient(#001F27, #191923) !important;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+    font-size: 0.8rem;
+}
