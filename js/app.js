@@ -41,24 +41,26 @@ function getTrackMatches(trackTitle, callback) {
 function renderTrack(track) {
     let listTrackElement = $('<li></li>')
     let listTrackName = $(`
-    <div id="${track.track_id}" class="track" onclick="renderTrackLyrics(event.target.id)" data-toggle="collapse" data-target="#content-${track.track_id}" aria-expanded="true" aria-controls="content-${track.track_id}">
+    <a id="${track.track_id}" class="track" data-toggle="collapse" data-target="#content-${track.track_id}" aria-expanded="true" aria-controls="content-${track.track_id}">
         <h3 class="mb-0">
             <strong>${track.track_name}</strong>
         </h3>
         <small class="font-weight-light">${track.artist_name}</small>
-    </div>`)
+    </a>`)
     let listTrackLyric = $(`
     <div id="content-${track.track_id}" class="collapse" aria-labelledby="${track.track_id}" data-parent="#trackList">
         <div class="card-body"></div>
     </div>`)
     listTrackElement.append(listTrackName, listTrackLyric)
     $('#trackList').append(listTrackElement)
+    $(`#${track.track_id}`).on('click', renderTrackLyrics)
 }
 
-function renderTrackLyrics(trackId) {
+function renderTrackLyrics() {
+    let trackId = event.target.id;
     getTrackLyrics(trackId, function(trackLyrics, err) {
-        let lyrics = (trackLyrics) ?  `${trackLyrics.lyrics_body}<br><small>${trackLyrics.lyrics_copyright}</small>` : 'No lyrics available.';
-        $(`#content-${trackId} .card-body`).html(lyrics)            
+        let lyrics = (trackLyrics && trackLyrics.lyrics_body) ?  `${trackLyrics.lyrics_body}<br><small>${trackLyrics.lyrics_copyright}</small>` : `No lyrics available.`;
+        $(`#content-${trackId} .card-body`).html(lyrics)
     })
 }
 
